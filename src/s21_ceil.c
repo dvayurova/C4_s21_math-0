@@ -14,5 +14,7 @@ long double s21_ceil(double x) {
     if (1 / x == -s21_INF)
       res = x;
   }
+  if (x >= LLONG_MAX)
+    res = x;
   return res;
 }

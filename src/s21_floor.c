@@ -1,4 +1,5 @@
 #include "s21_math.h"
+#include <limits.h>
 
 long double s21_floor(double x) {
   long double res = (long long)x;
@@ -12,5 +13,7 @@ long double s21_floor(double x) {
     if (1 / x == -s21_INF)
       res = x;
   }
+  if (x >= LLONG_MAX)
+    res = x;
   return res;
 }
