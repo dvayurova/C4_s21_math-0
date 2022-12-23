@@ -248,8 +248,6 @@ START_TEST(sqrt_test) {
   ck_assert_ldouble_eq_tol(s21_sqrt(123.324242423), sqrt(123.324242423), 1e-6);
   ck_assert_ldouble_eq_tol(s21_sqrt(0.000000000001), sqrt(0.000000000001),
                            1e-6);
-  // ck_assert_ldouble_eq_tol(s21_sqrt(65465476545647.4234),
-  //                          sqrt(65465476545647.4234), 1e-6);
 }
 END_TEST
 
