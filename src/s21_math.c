@@ -5,15 +5,13 @@
 #include <stdlib.h>
 
 int s21_abs(int x) {
-  if (x < 0)
-    x *= -1;
+  if (x < 0) x *= -1;
   return x;
 }
 
 long double s21_fact(double x) {
   long double rez = 0.0;
-  if (x == 0 || x == 1)
-    rez = 1;
+  if (x == 0 || x == 1) rez = 1;
   if (x > 1) {
     rez = 1;
     rez = x * s21_fact(x - 1);
@@ -25,10 +23,8 @@ long double searchCosSin(double x, int n) {
   int stopFlag = 0;
   long double rez = 0.0;
   if (x == 0) {
-    if (n == 0)
-      rez = 1;
-    if (n == 1)
-      rez = 0;
+    if (n == 0) rez = 1;
+    if (n == 1) rez = 0;
     stopFlag = 1;
   }
   if (x == s21_NAN || x == s21_INF || x == -s21_INF) {
@@ -105,19 +101,16 @@ long double s21_pow(double base, double ex) {
     if (dif == 0) {
       rez = 1;
       if (ex > 0) {
-        for (int i = 0; i < (int)ex; i++)
-          rez *= base;
+        for (int i = 0; i < (int)ex; i++) rez *= base;
       } else if (ex < 0) {
         ex *= -1;
-        for (int i = 0; i < (int)ex; i++)
-          rez /= base;
+        for (int i = 0; i < (int)ex; i++) rez /= base;
       }
     } else {
       if (base < 0) {
         base *= -1;
         rez = s21_exp(ex * s21_log(base));
-        if (s21_fmod(ex, 2) != 0)
-          rez *= -1;
+        if (s21_fmod(ex, 2) != 0) rez *= -1;
       } else
         rez = s21_exp(ex * s21_log(base));
     }
@@ -169,8 +162,7 @@ long double s21_log(double x) {
 }
 
 long double s21_fabs(double x) {
-  if (x == s21_INF || x == -s21_INF)
-    x = s21_INF;
+  if (x == s21_INF || x == -s21_INF) x = s21_INF;
   if (x == s21_NAN || x == -s21_NAN)
     ;
   else if (x < 0)
@@ -216,8 +208,7 @@ long double s21_atan(double x) {
     }
     res = ((s21_PI * s21_sqrt(s21_pow(x, 2))) / (2 * x)) - sum;
   }
-  if (x == 1 || x == -1)
-    res = x * 0.785398163;
+  if (x == 1 || x == -1) res = x * 0.785398163;
   return res;
 }
 
@@ -243,15 +234,11 @@ long double s21_ceil(double x) {
   else if (x == s21_INF || x == -s21_INF)
     res = x == s21_INF ? s21_INF : -s21_INF;
   else {
-    if (x > 0 && (x - res))
-      res += 1;
-    if (res == 0 && x < 0)
-      res = -1 * res;
-    if (1 / x == -s21_INF)
-      res = x;
+    if (x > 0 && (x - res)) res += 1;
+    if (res == 0 && x < 0) res = -1 * res;
+    if (1 / x == -s21_INF) res = x;
   }
-  if (x >= LLONG_MAX)
-    res = x;
+  if (x >= LLONG_MAX) res = x;
   return res;
 }
 
@@ -262,12 +249,9 @@ long double s21_floor(double x) {
   else if (x == s21_INF || x == -s21_INF)
     res = x == s21_INF ? s21_INF : -s21_INF;
   else {
-    if (x < 0 && (x - res))
-      res -= 1;
-    if (1 / x == -s21_INF)
-      res = x;
+    if (x < 0 && (x - res)) res -= 1;
+    if (1 / x == -s21_INF) res = x;
   }
-  if (x >= LLONG_MAX)
-    res = x;
+  if (x >= LLONG_MAX) res = x;
   return res;
 }

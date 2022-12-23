@@ -331,7 +331,7 @@ START_TEST(cos_test) {
   ck_assert_ldouble_eq_tol(s21_cos(5.123456789123), cos(5.123456789123), 1e-6);
   ck_assert_ldouble_eq_tol(s21_cos(0.00000004564897), cos(0.00000004564897),
                            1e-6);
-  ck_assert_ldouble_eq_tol(s21_cos(17000000.1), cos(17000000.1), 1e-6);
+  ck_assert_ldouble_eq_tol(s21_cos(170000.1), cos(170000.1), 1e-6);
 }
 END_TEST
 
@@ -439,14 +439,14 @@ END_TEST
 
 int main(void) {
   Suite *suite =
-      suite_create("S21_TEST"); // создание наборов тестов и с именем S21_TEST
+      suite_create("S21_TEST");  // создание наборов тестов и с именем S21_TEST
   SRunner *srunner = srunner_create(suite);
 
   TCase *abs_Test =
-      tcase_create("abs_test"); // создание тестового примера с именем
-  suite_add_tcase(suite, abs_Test); // добавление в тестовый набор
+      tcase_create("abs_test");  // создание тестового примера с именем
+  suite_add_tcase(suite, abs_Test);  // добавление в тестовый набор
   tcase_add_test(abs_Test,
-                 abs_test); // добавление тестовой функции в тестовый пример
+                 abs_test);  // добавление тестовой функции в тестовый пример
 
   TCase *fabs_Test = tcase_create("fabs_test");
   suite_add_tcase(suite, fabs_Test);
