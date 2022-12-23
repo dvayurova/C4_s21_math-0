@@ -92,18 +92,17 @@ long double s21_exp(double x) {
 
 long double s21_pow(double base, double ex) {
   long double rez = 0.0;
-  if (base == s21_NAN || ex == s21_NAN)
+  long double dif = 0;
+  dif = ex - (long long)ex;
+  if (base == s21_NAN || ex == s21_NAN ||
+      ((base < 0 && base != -s21_INF) && dif != 0))
     rez = s21_NAN;
   else if ((base == -1 || base == 1) && (ex == -s21_INF || ex == s21_INF))
     rez = 1.0;
-  else if ((base == -s21_INF) && ex != -s21_INF && ex != -s21_NAN)
-    rez = s21_INF;
-  else if ((base < 0 && base != -s21_INF) && (ex - (long long)ex != 0))
-    rez = s21_NAN;
   else if (base == 0)
     rez = 0;
   else {
-    if (((long long)ex - ex) == 0) {
+    if (dif == 0) {
       rez = 1;
       if (ex > 0) {
         for (int i = 0; i < (int)ex; i++)
