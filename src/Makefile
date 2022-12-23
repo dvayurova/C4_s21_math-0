@@ -33,7 +33,7 @@ endif
 	./test.out	
 
 gcov_report : clean
-	$(CC) $(CFLAGS) $(GCOVFLAGS) -o gcov_test -lcheck s21_math.c unit_tests.c
+	$(CC) $(CFLAGS) $(GCOVFLAGS) -o gcov_test -lcheck $(C_FILES) unit_tests.c
 	./gcov_test 
 	$(LC) -o report.info
 	genhtml -o gcov_report report.info
